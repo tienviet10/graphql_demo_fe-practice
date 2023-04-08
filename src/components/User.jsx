@@ -1,6 +1,7 @@
 import React from "react";
 import UserAvatar from "./UserAvatar";
 import { gql, useQuery } from "@apollo/client";
+import Posts from "./Posts";
 
 const GET_USER = gql`
   query User($id: ID!) {
@@ -33,6 +34,9 @@ const User = ({ user, selectUser }) => {
       <div className="flex flex-wrap items-start mb-4">
         <div className="lg:w-1/4 w-full rounded text-center">
           <UserAvatar user={user} />
+        </div>
+        <div className="pox-4 flex-1 w-full">
+          <Posts posts={data.user.posts} user={user} />
         </div>
       </div>
     </>
