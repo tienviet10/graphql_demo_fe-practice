@@ -1,6 +1,7 @@
 import React from "react";
 import UserAvatar from "./UserAvatar";
 import { gql, useQuery } from "@apollo/client";
+import CreateUser from "./CreateUser";
 
 export const GET_USERS = gql`
   {
@@ -30,6 +31,8 @@ const Users = ({ selectUser }) => {
           <UserAvatar user={user} />
         </div>
       ))}
+
+      <CreateUser />
     </div>
   );
 };
