@@ -1,4 +1,6 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { useState } from "react";
+import Users from "./Users";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -25,9 +27,12 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [selectedUser, setSelectedUser] = useState(null);
   return (
     <ApolloProvider client={client}>
-      <div className="App">Hi</div>
+      <div className="container mx-auto px-4">
+        {selectedUser ? <></> : <Users selectUser={setSelectedUser} />}
+      </div>
     </ApolloProvider>
   );
 }
