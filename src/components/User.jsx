@@ -9,6 +9,7 @@ const GET_USER = gql`
       posts {
         id
         title
+        body
       }
     }
   }
@@ -21,6 +22,8 @@ const User = ({ user, selectUser }) => {
 
   if (loading) return "Loading...";
   if (error) return `Error ${error.message}`;
+
+  console.log(data);
   return (
     <>
       <div className="flex flex-wrap my-4">
